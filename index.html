@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>For you ❤️</title>
+    <link rel="icon" href="Abi.jpeg
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -157,7 +158,7 @@
 
 <body>
     <!-- Background Video -->
-    <video id="bgVideo" autoplay muted loop playsinline>
+    <video id="bgVideo" autoplay muted loop playsinline webkit-playsinline>
     <source src="love.mp4" type="video/mp4">
 </video>
 
@@ -291,8 +292,16 @@
             }, 300);
         }
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("bgVideo");
+  video.muted = true;
+  video.play().catch(() => {});
+});
+</script>
 </body>
 
 
 </html>
+
 
