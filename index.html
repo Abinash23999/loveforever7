@@ -206,19 +206,38 @@ function handleNo() {
 
 /* VIDEO */
 function playLove() {
-    document.body.innerHTML = "";
+
+    // Hide all pages
+    document.querySelectorAll(".page").forEach(page => {
+        page.style.display = "none";
+    });
+
+    document.getElementById("hearts").style.display = "none";
+
     const video = document.createElement("video");
-    video.src = "love.mp4";
+    video.src = "./love.mp4";
     video.autoplay = true;
     video.loop = true;
     video.playsInline = true;
+
     video.style.position = "fixed";
+    video.style.top = "0";
+    video.style.left = "0";
     video.style.width = "100vw";
     video.style.height = "100vh";
     video.style.objectFit = "cover";
-    document.body.appendChild(video);
-}
 
+    document.body.appendChild(video);
+
+    // 🔥 Request real fullscreen
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) { // Safari
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { // IE
+        video.msRequestFullscreen();
+    }
+}
 /* HEART ANIMATION */
 for (let i = 0; i < 20; i++) createHeart();
 setInterval(createHeart, 200);
@@ -238,6 +257,7 @@ function createHeart() {
 
 </body>
 </html>
+
 
 
 
