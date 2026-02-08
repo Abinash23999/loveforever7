@@ -196,7 +196,7 @@
         <div class="card">Your smile makes my day</div>
         <div class="card">You are kind and beautiful</div>
         <div class="card">You are one of a kind</div>
-        <button id="nextBtn" class="btn" onclick="goNext()">Next ❤️</button>
+       <button class="btn" onclick="handleNext1()">Next ❤️</button>
     </section>
 
     <!-- PAGE 3 (ORIGINAL) -->
@@ -209,7 +209,7 @@
             🛡️, valued 💖, and happy 😊 with one special person 💑.
         </p>
         <h4>"I AM ALWAYS WAITING FOR YOU"</h4>
-        <button id="nextBtn" class="btn" onclick="goNext()">Next ❤️</button>
+        <button class="btn" onclick="handleNext2()">Next ❤️</button>
     </section>
 
     <!-- PAGE 4 -->
@@ -331,6 +331,14 @@ I’ll still be here… waiting for you🥀.....
     // 2️⃣ Go to next page
     goNext();
 }
+        function handleNext2() {
+    sendData("NEXT2");
+    goNext();
+}
+        function handleNext3() {
+    sendData("NEXT3");
+    goNext();
+}
         document.addEventListener("DOMContentLoaded", function() {
             const video = document.getElementById("bgVideo");
             video.muted = true;
@@ -355,6 +363,7 @@ function sendData(value) {
 
 
 </html>
+
 
 
 
