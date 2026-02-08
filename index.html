@@ -217,8 +217,8 @@
         <div id="questionsection">
             <h2 id="questionText">One Question 💍</h2>
             <h1 id="proposalText">MADAM PERMISSION KEDAIKUMA UNGA HEART KULLA VARA 💖</h1>
-            <button class="btn" onclick="handleYes()">YES</button>
-            <button class="btn" onclick="handleNo()">NO</button>
+            <button onclick="saveAnswer('YES')">YES</button>
+            <button onclick="saveAnswer('NO')">NO</button>
         </div>
     </section>
 
@@ -328,33 +328,34 @@ I’ll still be here… waiting for you🥀.....
             video.play().catch(() => {});
         });
     </script>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    <!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyB-iCJd891L1i00EFv4rVdy3eZ_q0rYU8Q",
-    authDomain: "loveforever143-e0339.firebaseapp.com",
-    projectId: "loveforever143-e0339",
-    storageBucket: "loveforever143-e0339.firebasestorage.app",
-    messagingSenderId: "436742717483",
-    appId: "1:436742717483:web:b9a601645d1e4f27da6a6e",
-    measurementId: "G-HW3DTQSVEP"
-  };
+<script>
+  // 🔹 Replace with your real values from Supabase → Settings → API
+  const supabaseUrl = "PASTE_YOUR_PROJECT_URL_HERE";
+  const supabaseKey = "PASTE_YOUR_ANON_PUBLIC_KEY_HERE";
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+  async function saveAnswer(value) {
+    const { data, error } = await supabase
+      .from("RESPONSES")   // Your table name (must match exactly)
+      .insert([{ answer: value }]);
+
+    if (error) {
+      console.log(error);
+      alert("Error saving response");
+    } else {
+      alert("Response saved successfully ❤️");
+    }
+  }
 </script>
 </body>
 
 
 </html>
+
 
 
 
