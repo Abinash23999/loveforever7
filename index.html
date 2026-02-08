@@ -187,7 +187,7 @@
     <section id="page1" class="page active">
         <h1>❤️ HI MY SOUL ❤️</h1>
         <h2>I made this just for you</h2>
-        <button id="nextBtn" class="btn" onclick="handleNext()">Next ❤️</button>
+        <button onclick="sendNEXT1()" class="btn">Next ❤️</button>
     </section>
 
     <!-- PAGE 2 (ORIGINAL) -->
@@ -196,7 +196,7 @@
         <div class="card">Your smile makes my day</div>
         <div class="card">You are kind and beautiful</div>
         <div class="card">You are one of a kind</div>
-        <button id="nextBtn" class="btn" onclick="handleNext()">Next ❤️</button>
+        <button onclick="sendNEXT2()" class="btn">Next ❤️</button>
     </section>
 
     <!-- PAGE 3 (ORIGINAL) -->
@@ -209,7 +209,7 @@
             🛡️, valued 💖, and happy 😊 with one special person 💑.
         </p>
         <h4>"I AM ALWAYS WAITING FOR YOU"</h4>
-        <button class="btn" onclick="handleNext2()">Next ❤️</button>
+        <button onclick="sendNEXT3()" class="btn">Next ❤️</button>
     </section>
 
     <!-- PAGE 4 -->
@@ -323,21 +323,19 @@ I’ll still be here… waiting for you🥀.....
         }
     </script>
     <script>
-        function handleNext() {
-
-    // 1️⃣ Send response to Google Form
-    sendData("NEXT1");
-
-    // 2️⃣ Go to next page
-    goNext();
+       function sendNEXT1() {
+  sendData("NEXT1");
+  goNext();
 }
-        function handleNext2() {
-    sendData("NEXT2");
-    goNext();
+
+function sendNEXT2() {
+  sendData("NEXT2");
+  goNext();
 }
-        function handleNext3() {
-    sendData("NEXT3");
-    goNext();
+
+function sendNEXT3() {
+  sendData("NEXT3");
+  goNext();
 }
         document.addEventListener("DOMContentLoaded", function() {
             const video = document.getElementById("bgVideo");
@@ -363,6 +361,7 @@ function sendData(value) {
 
 
 </html>
+
 
 
 
