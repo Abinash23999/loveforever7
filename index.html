@@ -217,7 +217,7 @@
         <div id="questionsection">
             <h2 id="questionText">One Question 💍</h2>
             <h1 id="proposalText">MADAM PERMISSION KEDAIKUMA UNGA HEART KULLA VARA 💖</h1>
-            <button class="btn" onclick="handleYes()">YES</button>
+            <button class="btn" onclick="handleYes()">YES ❤️</button>
             <button class="btn" onclick="handleNo()">NO</button>
         </div>
     </section>
@@ -337,6 +337,14 @@ function sendNEXT3() {
   sendData("NEXT3");
   goNext();
 }
+        function handleYes() {
+
+    // Save response
+    sendData("YES");
+
+    // Play your existing love function
+    playLove();
+}
         document.addEventListener("DOMContentLoaded", function() {
             const video = document.getElementById("bgVideo");
             video.muted = true;
@@ -356,11 +364,23 @@ function sendData(value) {
         body: data
     });
 }
+        function sendData(value) {
+
+    const data = new FormData();
+    data.append(entryId, value);
+
+    fetch(formURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: data
+    });
+}
 </script>
 </body>
 
 
 </html>
+
 
 
 
