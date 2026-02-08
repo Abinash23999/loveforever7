@@ -207,35 +207,44 @@ function handleNo() {
 /* VIDEO */
 function playLove() {
 
-    // Hide all pages
+    // Hide pages
     document.querySelectorAll(".page").forEach(page => {
         page.style.display = "none";
     });
 
     document.getElementById("hearts").style.display = "none";
 
+    // Create fullscreen container
+    const container = document.createElement("div");
+    container.style.position = "fixed";
+    container.style.top = "0";
+    container.style.left = "0";
+    container.style.width = "100vw";
+    container.style.height = "100vh";
+    container.style.background = "black";
+    container.style.zIndex = "9999";
+
+    // Create video
     const video = document.createElement("video");
     video.src = "./love.mp4";
     video.autoplay = true;
     video.loop = true;
     video.playsInline = true;
-
-    video.style.position = "fixed";
-    video.style.top = "0";
-    video.style.left = "0";
-    video.style.width = "100vw";
-    video.style.height = "100vh";
+    video.controls = false;
+    video.style.width = "100%";
+    video.style.height = "100%";
     video.style.objectFit = "cover";
 
-    document.body.appendChild(video);
+    container.appendChild(video);
+    document.body.appendChild(container);
 
-    // 🔥 Request real fullscreen
-    if (video.requestFullscreen) {
-        video.requestFullscreen();
-    } else if (video.webkitRequestFullscreen) { // Safari
-        video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) { // IE
-        video.msRequestFullscreen();
+    // 🔥 Request fullscreen on container NOT video
+    if (container.requestFullscreen) {
+        container.requestFullscreen();
+    } else if (container.webkitRequestFullscreen) {
+        container.webkitRequestFullscreen();
+    } else if (container.msRequestFullscreen) {
+        container.msRequestFullscreen();
     }
 }
 /* HEART ANIMATION */
@@ -257,6 +266,7 @@ function createHeart() {
 
 </body>
 </html>
+
 
 
 
