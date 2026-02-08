@@ -95,8 +95,6 @@ a:active {
                 transform: translateY(-10vh);
             }
         }
-        /* Cover hearts */
-        
         #heartCover {
             position: fixed;
             top: 0;
@@ -121,7 +119,6 @@ a:active {
                 transform: translateY(120vh);
             }
         }
-        
         #bgVideo {
             position: fixed;
             top: 0;
@@ -167,6 +164,15 @@ a:active {
   background-color: #ff4d6d;
 }
         }
+        #nextBtn {
+    background: linear-gradient(45deg, #ff1744, #cc0000);
+    color: white;
+}
+
+#nextBtn:hover {
+    background: linear-gradient(45deg, #cc0000, #800000);
+    transform: scale(1.05);
+}
     </style>
 </head>
 
@@ -186,7 +192,7 @@ a:active {
     <section id="page1" class="page active">
         <h1>❤️ HI MY SOUL ❤️</h1>
         <h2>I made this just for you</h2>
-        <button class="btn" onclick="goNext()">Next ❤️</button>
+        <button id="nextBtn" class="btn" onclick="goNext()">Next ❤️</button>
     </section>
 
     <!-- PAGE 2 (ORIGINAL) -->
@@ -317,6 +323,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </html>
+
 
 
 
