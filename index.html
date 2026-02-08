@@ -105,6 +105,29 @@
             z-index: 9999;
             pointer-events: none;
         }
+        .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.love-btn {
+    background: linear-gradient(45deg, #ff3c5f, #ff1e3c);
+    color: white;
+    border: none;
+    padding: 15px 60px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 0, 70, 0.4);
+}
+
+.love-btn:hover {
+    transform: scale(1.08);
+}
         
         .cover-heart {
             position: absolute;
@@ -217,8 +240,10 @@
         <div id="questionsection">
             <h2 id="questionText">One Question 💍</h2>
             <h1 id="proposalText">MADAM PERMISSION KEDAIKUMA UNGA HEART KULLA VARA 💖</h1>
-            <button onclick="handleYes()">YES ❤️</button>
-            <button onclick="handleNo()">NO</button>
+            <div class="button-container">
+    <button type="button" class="love-btn" onclick="handleYes()">YES</button>
+    <button type="button" class="love-btn" onclick="handleNo()">NO</button>
+</div>
         </div>
     </section>
 
@@ -341,6 +366,9 @@ function handleYes() {
   sendData("YES");
   playLove();
 }
+function handleNo() {
+  sendData("NO");
+  playLove();
         document.addEventListener("DOMContentLoaded", function() {
             const video = document.getElementById("bgVideo");
             video.muted = true;
@@ -376,6 +404,7 @@ function sendData(value) {
 
 
 </html>
+
 
 
 
