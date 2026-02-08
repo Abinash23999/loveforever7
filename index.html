@@ -187,7 +187,7 @@
     <section id="page1" class="page active">
         <h1>❤️ HI MY SOUL ❤️</h1>
         <h2>I made this just for you</h2>
-        <button id="nextBtn" class="btn" onclick="goNext()">Next ❤️</button>
+        <button onclick="sendData('NEXT1')">NEXT</button>
     </section>
 
     <!-- PAGE 2 (ORIGINAL) -->
@@ -328,31 +328,18 @@ I’ll still be here… waiting for you🥀.....
             video.muted = true;
             video.play().catch(() => {});
         });
-    </script>
-<script>
-const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSf3LRrv-vtembq1jodjlEPs-QwVAxwszjRSsTD76NR-V6J7JA/formResponse";
-const entryID = "entry.672353599";
-
-function sendYES() {
-    sendData("YES");
-}
-
-function sendNO() {
-    sendData("NO");
-}
-
-function sendNEXT() {
-    sendData("NEXT");
-}
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSf3LRrv-vtembq1jodjlEPs-QwVAxwszjRSsTD76NR-V6J7JA/formResponse";
+const entryId = "entry.672353599";
 
 function sendData(value) {
-    const formData = new FormData();
-    formData.append(entryID, value);
+
+    const data = new FormData();
+    data.append(entryId, value);
 
     fetch(formURL, {
         method: "POST",
         mode: "no-cors",
-        body: formData
+        body: data
     });
 
     alert("Response Sent: " + value);
@@ -362,6 +349,7 @@ function sendData(value) {
 
 
 </html>
+
 
 
 
