@@ -159,14 +159,18 @@ a:active {
         #yesBtn:hover {
             background: linear-gradient(45deg, #cc0000, #800000);
             transform: scale(1.05);
-
 #noBtn {
-  background-color: #ff4d6d;
-}
-        }
-        #nextBtn {
     background: linear-gradient(45deg, #ff1744, #cc0000);
     color: white;
+}
+
+#noBtn:hover {
+    background: linear-gradient(45deg, #cc0000, #800000);
+    transform: scale(1.05);
+}
+
+#noBtn:active {
+    transform: scale(0.95);
 }
 
 #nextBtn:hover {
@@ -227,7 +231,7 @@ a:active {
         <h2 id="successText" style="display:none;font-size:50px;">
             💖 I LOVE YOU TOO 💖
         </h2>
-        <button class="btn" id="noBtn">NO</button>
+        <button id="noBtn" class="btn">NO</button>
     </section>
 
     <script>
@@ -322,6 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </html>
+
 
 
 
