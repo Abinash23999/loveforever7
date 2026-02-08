@@ -264,8 +264,9 @@
             <h2 style="font-size:30px;">Think once again 💔</h2>
             <h3>My heart will break 🥺</h3>
 
-            <button class="btn" onclick="handleYes()">YES</button>
-            <button class="btn" onclick="handleNo()">NO</button>
+           <button onclick="sendYES()">YES ❤️</button>
+<button onclick="sendNO()">NO 💔</button>
+<button onclick="sendNEXT()">NEXT ⏭️</button>
         `;
             } else {
                 document.body.innerHTML = `
@@ -328,10 +329,38 @@ I’ll still be here… waiting for you🥀.....
             video.play().catch(() => {});
         });
     </script>
+<script>
+const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSelpBo8wJcvSCt0QHRzlk6Gx6lfNhzbD0fFeBAsPBZUcB0Bsw/formResponse";
+const entryId = "entry.447408502";
+
+function sendYES() {
+  sendData("YES");
+}
+
+function sendNO() {
+  sendData("NO");
+}
+
+function sendNEXT() {
+  sendData("NEXT");
+}
+
+function sendData(value) {
+  const data = new FormData();
+  data.append(entryId, value);
+
+  fetch(formURL, {
+    method: "POST",
+    mode: "no-cors",
+    body: data
+  });
+}
+</script>
 </body>
 
 
 </html>
+
 
 
 
