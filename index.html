@@ -7,33 +7,33 @@
     <title>❤️FOR YOU❤️</title>
     <link rel="icon" href="Abi.jpeg">
     <style>
-body {
-    * {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button, a {
-  outline: none !important;
-  border: none;
-  background: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-button:focus,
-button:active,
-a:focus,
-a:active {
-  outline: none !important;
-  background: none !important;
-  box-shadow: none !important;
-}
-    button {
-  padding: 15px 30px;
-  border-radius: 30px;
-}
-           margin: 0;
-            font-family: Arial, sans-serif;
+        body {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+            button,
+            a {
+                outline: none !important;
+                border: none;
+                background: none;
+                -webkit-appearance: none;
+                appearance: none;
+            }
+            button:focus,
+            button:active,
+            a:focus,
+            a:active {
+                outline: none !important;
+                background: none !important;
+                box-shadow: none !important;
+            }
+            button {
+                padding: 15px 30px;
+                border-radius: 30px;
+            }
+            margin: 0;
+            font-family: Arial,
+            sans-serif;
             background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
             min-height: 100vh;
             overflow: hidden;
@@ -58,7 +58,6 @@ a:active {
             opacity: 1;
             pointer-events: auto;
         }
-        
         /* Cards */
         
         .card {
@@ -95,6 +94,7 @@ a:active {
                 transform: translateY(-10vh);
             }
         }
+        
         #heartCover {
             position: fixed;
             top: 0;
@@ -119,6 +119,7 @@ a:active {
                 transform: translateY(120vh);
             }
         }
+        
         #bgVideo {
             position: fixed;
             top: 0;
@@ -141,27 +142,33 @@ a:active {
             display: none;
             z-index: 2;
         }
-.btn {
-  padding: 15px 35px;
-  font-size: 20px;
-  border: none;
-  border-radius: 40px;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  background: linear-gradient(45deg, #ff1744, #cc0000);
-}
-
-.btn:hover {
-  background: linear-gradient(45deg, #cc0000, #800000);
-  transform: scale(1.05);
-}
-
-.btn:active {
-  transform: scale(0.95);
-}
-        </style>
+        
+        .btn {
+            padding: 15px 35px;
+            font-size: 20px;
+            border: none;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #ff1744, #cc0000);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(45deg, #cc0000, #800000);
+            transform: scale(1.05);
+        }
+        
+        .btn:active {
+            transform: scale(0.95);
+        }
+        
+        #page4 .btn {
+            margin: 8px 0;
+            /* small gap */
+        }
+    </style>
 </head>
 
 <body>
@@ -202,7 +209,7 @@ a:active {
             🛡️, valued 💖, and happy 😊 with one special person 💑.
         </p>
         <h4>"I AM ALWAYS WAITING FOR YOU"</h4>
-         <button id="nextBtn" class="btn" onclick="goNext()">Next ❤️</button>
+        <button id="nextBtn" class="btn" onclick="goNext()">Next ❤️</button>
     </section>
 
     <!-- PAGE 4 -->
@@ -210,12 +217,9 @@ a:active {
         <div id="questionsection">
             <h2 id="questionText">One Question 💍</h2>
             <h1 id="proposalText">MADAM PERMISSION KEDAIKUMA UNGA HEART KULLA VARA 💖</h1>
-            <button class="btn" onclick="playLove()">YES</button>
+            <button class="btn" onclick="handleYes()">YES</button>
+            <button class="btn" onclick="handleNo()">NO</button>
         </div>
-        <h2 id="successText" style="display:none;font-size:50px;">
-            💖 I LOVE YOU TOO 💖
-        </h2>
-        <button id="noBtn" class="btn">NO</button>
     </section>
 
     <script>
@@ -246,16 +250,33 @@ a:active {
             document.getElementById("hearts").appendChild(h);
             setTimeout(() => h.remove(), 7000);
         }
+        let noClickCount = 0;
 
-        /* NO button move */
-        const noBtn = document.getElementById("noBtn");
-        noBtn.onmouseover = moveButton;
-        noBtn.onclick = moveButton;
+        function handleYes() {
+            playLove(); // your existing video function
+        }
 
-        function moveButton() {
-            noBtn.style.position = "absolute";
-            noBtn.style.left = Math.random() * 90 + "vw";
-            noBtn.style.top = Math.random() * 90 + "vh";
+        function handleNo() {
+            noClickCount++;
+
+            if (noClickCount === 1) {
+                document.getElementById("questionsection").innerHTML = `
+            <h2 style="font-size:30px;">Think once again 💔</h2>
+            <h3>My heart will break 🥺</h3>
+
+            <button class="btn" onclick="handleYes()">YES</button>
+            <button class="btn" onclick="handleNo()">NO</button>
+        `;
+            } else {
+                document.body.innerHTML = `
+            <h1 style="margin-top:40vh; text-align:center; color:white;">
+                💔 My Heart Broke...
+            </h1>
+        `;
+                setTimeout(() => {
+                    window.close();
+                }, 2000);
+            }
         }
 
         function playLove() {
@@ -300,16 +321,17 @@ a:active {
         }
     </script>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const video = document.getElementById("bgVideo");
-  video.muted = true;
-  video.play().catch(() => {});
-});
-</script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.getElementById("bgVideo");
+            video.muted = true;
+            video.play().catch(() => {});
+        });
+    </script>
 </body>
 
 
 </html>
+
 
 
 
