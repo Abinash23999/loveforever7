@@ -197,10 +197,20 @@ function handleNo() {
 
         document.body.innerHTML = `
             <h1 style="margin-top:40vh; text-align:center;">
-               Your choice matters… even if it breaks my heart.
-               I’ll still be here… waiting for you🥀.....
+               Your choice matters… even if it breaks my heart 💔
+               <br><br>
+               Closing in 2 seconds...
             </h1>
         `;
+
+        // 🔥 Close after 2 seconds
+        setTimeout(() => {
+            window.close();
+
+            // If browser blocks closing → redirect fallback
+            window.location.href = "about:blank";
+
+        }, 2000);
     }
 }
 
@@ -266,6 +276,7 @@ function createHeart() {
 
 </body>
 </html>
+
 
 
 
