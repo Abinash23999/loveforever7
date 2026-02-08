@@ -141,35 +141,27 @@ a:active {
             display: none;
             z-index: 2;
         }
-        btn {
-  padding: 15px 30px;
+.btn {
+  padding: 15px 35px;
   font-size: 20px;
   border: none;
-  border-radius: 30px;
-  background-color: #ff4d6d;   /* FULL RED ALWAYS */
+  border-radius: 40px;
   color: white;
   cursor: pointer;
+  transition: 0.3s ease;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-         #yesBtn {
-            background: linear-gradient(45deg, #ff1744, #cc0000);
-            color: white;
-        }
-        
-        #yesBtn:hover {
-            background: linear-gradient(45deg, #cc0000, #800000);
-            transform: scale(1.05);
-#nextBtn {
-    background: linear-gradient(45deg, #ff1744, #cc0000);
-    color: white;
+  background: linear-gradient(45deg, #ff1744, #cc0000);
 }
 
-#nextBtn:hover {
-    background: linear-gradient(45deg, #cc0000, #800000);
-    transform: scale(1.05);
+.btn:hover {
+  background: linear-gradient(45deg, #cc0000, #800000);
+  transform: scale(1.05);
 }
+
+.btn:active {
+  transform: scale(0.95);
 }
-    </style>
+        </style>
 </head>
 
 <body>
@@ -318,6 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </html>
+
 
 
 
