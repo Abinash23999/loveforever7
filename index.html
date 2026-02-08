@@ -187,8 +187,7 @@
     <section id="page1" class="page active">
         <h1>❤️ HI MY SOUL ❤️</h1>
         <h2>I made this just for you</h2>
-        <button onclick="sendData('NEXT1')">NEXT</button>
-        <button id="nextBtn" class="btn" onclick="goNext()">Next ❤️</button>
+        <button id="nextBtn" class="btn" onclick="handleNext()">Next ❤️</button>
     </section>
 
     <!-- PAGE 2 (ORIGINAL) -->
@@ -324,6 +323,14 @@ I’ll still be here… waiting for you🥀.....
         }
     </script>
     <script>
+        function handleNext() {
+
+    // 1️⃣ Send response to Google Form
+    sendData("NEXT1");
+
+    // 2️⃣ Go to next page
+    goNext();
+}
         document.addEventListener("DOMContentLoaded", function() {
             const video = document.getElementById("bgVideo");
             video.muted = true;
@@ -348,6 +355,7 @@ function sendData(value) {
 
 
 </html>
+
 
 
 
