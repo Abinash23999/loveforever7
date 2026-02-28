@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Love Lock</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: url("LOVE.jpeg") no-repeat center center;
+            background-size: contain;
+            background-color: black;
+            position: relative;
+            font-family: sans-serif;
+        }
+        /* Pink styled boxes */
+        
+        .box {
+            position: absolute;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            text-align: center;
+            outline: none;
+            color: #ff5c8a;
+            cursor: pointer;
+        }
+        /* DOB */
+        
+        .dd {
+            top: 53%;
+            left: 41%;
+            width: 60px;
+        }
+        
+        .mm {
+            top: 53%;
+            left: 48%;
+            width: 60px;
+        }
+        
+        .yy {
+            top: 53%;
+            left: 55%;
+            width: 80px;
+        }
+        /* Name */
+        
+        .name {
+            top: 66%;
+            left: 41%;
+            width: 260px;
+            cursor: text;
+        }
+        /* Button */
+        
+        .enter {
+            position: absolute;
+            top: 80%;
+            left: 44%;
+            width: 230px;
+            height: 60px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        /* Hidden date picker */
+        
+        #realDate {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- DOB display -->
+    <input id="dd" class="box dd" readonly onclick="openDate()">
+    <input id="mm" class="box mm" readonly onclick="openDate()">
+    <input id="yy" class="box yy" readonly onclick="openDate()">
+
+    <!-- Name -->
+    <input id="name" class="box name" placeholder="Enter your name">
+
+    <button onclick="checkLove()" class="enter"></button>
+
+    <!-- Hidden date picker -->
+    <input type="date" id="realDate" onchange="fillDate(this.value)">
+
+    <script>
+        function openDate() {
+            document.getElementById("realDate").showPicker();
+        }
+
+        function fillDate(value) {
+
+            if (!value) return;
+
+            let date = new Date(value);
+
+            let dd = String(date.getDate()).padStart(2, '0');
+            let mm = String(date.getMonth() + 1).padStart(2, '0');
+            let yy = date.getFullYear();
+
+            document.getElementById("dd").value = dd;
+            document.getElementById("mm").value = mm;
+            document.getElementById("yy").value = yy;
+        }
+
+        function checkLove() {
+
+            let dd = document.getElementById("dd").value;
+            let mm = document.getElementById("mm").value;
+            let yy = document.getElementById("yy").value;
+
+            let name = document.getElementById("name").value.trim();
+
+            // Condition
+            let correctDOB = (dd === "23" && mm === "10" && yy === "2007");
+            let nameStartsWithA = name.charAt(0).toUpperCase() === "A";
+
+            if (correctDOB && nameStartsWithA) {
+                document.body.innerHTML = `
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:pink;
+font-size:40px;
+color:white;">
+💖 Welcome To Our Love World 💖
+</div>`;
+            } else {
+                document.body.innerHTML = `
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:black;
+color:white;
+font-size:30px;">
+❌ Not Yours 💔
+</div>`;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
